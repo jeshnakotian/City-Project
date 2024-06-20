@@ -1,4 +1,5 @@
 package com.example.cityproject;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,16 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LicenceActivity extends AppCompatActivity {
 
-    private EditText emailEditText;
+    private EditText itemEditText;
     private Button updateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_licence); // Replace with your layout file name
+        setContentView(R.layout.activity_licence);
 
         // Initialize UI elements
-        emailEditText = findViewById(R.id.email);
+        itemEditText = findViewById(R.id.item);
         updateButton = findViewById(R.id.submit);
 
         // Set click listener for the update button
@@ -31,16 +32,19 @@ public class LicenceActivity extends AppCompatActivity {
     }
 
     private void updateLicence() {
-        // Retrieve the text entered in the email EditText
-        String email = emailEditText.getText().toString().trim();
+        // Retrieve the text entered in the item EditText
+        String item = itemEditText.getText().toString().trim();
 
         // Perform validation if needed
-        if (email.isEmpty()) {
-            Toast.makeText(this, "Pleaase enter email", Toast.LENGTH_SHORT).show();
+        if (item.isEmpty()) {
+            Toast.makeText(this, "Please enter item", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // Example action: Display a toast message
-        Toast.makeText(this, "Update requested for email: " + email, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Updating licence for item: " + item, Toast.LENGTH_SHORT).show();
+
+        // Here you can implement your logic to update the licence or perform other actions
+        // For demonstration purposes, we just show a toast message
     }
 }

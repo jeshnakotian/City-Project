@@ -1,51 +1,50 @@
 package com.example.cityproject;
 
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class ComplaintActivity extends AppCompatActivity {
 
-    private TextInputEditText emailEditText;
+    private EditText emailEditText;
     private Button updateButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_complaint); // Replace with your XML layout name
+        setContentView(R.layout.activity_complaint);
 
-        // Initialize views
-        emailEditText = findViewById(R.id.email); // Replace with your TextInputEditText id
-        updateButton = findViewById(R.id.submit); // Replace with your Button id
+        // Initialize UI elements
+        emailEditText = findViewById(R.id.email);
+        updateButton = findViewById(R.id.submit);
 
-        // Set click listener for the button
+        // Set click listener for the update button
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle button click here
-                String email = emailEditText.getText().toString().trim();
-
-                if (!email.isEmpty()) {
-                    // Perform your update logic here (e.g., send data to server, update database)
-                    // For demonstration, just show a toast message
-                    Toast.makeText(ComplaintActivity.this, "Email entered: " + email, Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(ComplaintActivity.this, "Please enter an email", Toast.LENGTH_SHORT).show();
-                }
+                updateComplaint(); // Method to handle update action
             }
         });
+    }
+
+    private void updateComplaint() {
+        // Retrieve the text entered in the email EditText
+        String email = emailEditText.getText().toString().trim();
+
+        // Perform validation if needed
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Please enter email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Example action: Display a toast message
+        Toast.makeText(this, "Updating complaint with email: " + email, Toast.LENGTH_SHORT).show();
+
+        // Here you can implement your logic to update the complaint or perform other actions
+        // For demonstration purposes, we just show a toast message
     }
 }
