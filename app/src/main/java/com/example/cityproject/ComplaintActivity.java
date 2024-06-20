@@ -26,12 +26,12 @@ public class ComplaintActivity extends AppCompatActivity {
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateComplaint(); // Method to handle update action
+                updateComplaints(); // Method to handle update action
             }
         });
     }
 
-    private void updateComplaint() {
+    private void updateComplaints() {
         // Retrieve the text entered in the email EditText
         String email = emailEditText.getText().toString().trim();
 
