@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:layout_gravity="center"
-            android:text="Sign Up"
+            android:text="Sign Up NOw"
             android:textColor="#7E0F91"
             android:textSize="30dp" />
 
